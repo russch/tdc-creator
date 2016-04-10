@@ -1,0 +1,119 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TDC Creator</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./css/default.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/cupertino/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+
+
+
+    <script src="./js/main.js"></script>
+    <script src="./js/data.js"></script>
+</head>
+<body>
+<p><h1>Tableau TDC File Creator</h1>
+
+<h2>Who enjoys manually creating a TDC file? Not me!</h2></p>
+
+<p><b>Instructions:</b></p>
+
+<p>1. Select a Data Source. Note that not all data sources respect TDC files so the list below isn't complete. </p>
+<img src="./img/createdatasource.gif"/>
+<p>2. Select one or more Customizations.CTRL-Click  (CMD-Click on Mac) to multi-select.</p>
+<ul>
+    <li>Customizations below may or may not apply to your Data Source. Contact your vendor for more info</li>
+    <li>Selected Customizations appear in the blue "You've Selected" list. Modify the value of each with the associated input box</li>
+    <img src="./img/selecting.gif"/>
+
+    <li>If you choose Generic ODBC, you must manually enter a value for "driver". You can find this value by examining the <b>datasource</b> XML element in your twb or tds with a text editor. Look for child element named <b>driver name</b></li>
+    <img src="./img/generic.gif"/>
+</ul>
+<p>3. Click "Give Me" button. Wait for 4-5 seconds and myVeryOwnTDC.tdc will appear in your download list (based on browser you may not get a prompt asking if you want to download)</p>
+<p/>
+
+<hr>
+<span>
+<p>
+<select id="datasource" onchange="checkDataSourceValue(this)">
+    <option value="nothing">Select a Data Source Here</option>
+    <option value="vectorwise">Actian Vectorwise</option>
+    <option value="awshadoophive">Amazon EMR</option>
+    <option value="redshift">Amazon Redshift</option>
+    <option value="asterncluster">Aster Database</option>
+    <option value="hadoophive">Cloudera Hadoop</option>
+    <option value="datastax">DataStax Enterprise</option>
+    <option value="exasolution">EXASolution</option>
+    <option value="firebird">Firebird</option>
+    <option value="genericodbc">Generic ODBC</option>
+    <option value="google-analytics">Google Analytics</option>
+    <option value="bigquery">Google BigQuery</option>
+    <option value="hortonworkshadoophive">Hortonworks Hadooop Hive</option>
+    <option value="vertica">HP Vertica</option>
+    <option value="bigsql">IBM BigInsights</option>
+    <option value="db2">IBM DB2</option>
+    <option value="jsconnector">JavaScript Connector</option>
+    <option value="maprhadoophive">MapR Hadoop Hive</option>
+    <option value="marklogic">MarkLogic</option>
+    <option value="msaccess">Microsoft Access</option>
+    <option value="msolap">Microsoft Analysis Services</option>
+    <option value="powerpivot">Microsoft PowerPivot</option>
+    <option value="sqlserver">Microsoft SQL Server</option>
+    <option value="mysql">MySQL</option>
+    <option value="netezza">IBM Netezza</option>
+    <option value="odata">OData</option>
+    <option value="oracle">Oracle</option>
+    <option value="essbase">Oracle Essbase</option>
+    <option value="paraccel">ParAccel</option>
+    <option value="greenplum">Pivotal Greenplum</option>
+    <option value="postgres">PostgreSQL</option>
+    <option value="progressopenedge">Progress OpenEdge</option>
+    <option value="saphana">SAP HANA</option>
+    <option value="sapbw">SAP Netweaver Business Warehouse</option>
+    <option value="sybasease">SAP Sybase ASE</option>
+    <option value="sybaseiq">SAP Sybase IQ</option>
+    <option value="salesforce">Salesforce</option>
+    <option value="spark">Spark SQL</option>
+    <option value="splunk">Splunk</option>
+    <option value="dataengine">Tableau Data Extract</option>
+    <option value="teradata">Teradata</option>
+    <option value="csv">Text file</option>
+</select>
+<input style="display:none;" type='text' id='driver' value="Enter Driver Name Here" />
+<button type="button"onclick="generateTDC()">Give Me</button></p><br><br>
+</span>
+
+<style>
+  #feedback { font-size: 1.4em; }
+  #grid .ui-selecting { background: #FECA40; }
+  #grid .ui-selected { background: #F39814; color: white; }
+  #grid { list-style-type: none; margin: 0; padding: 0; width: 100%; }
+  #grid li { margin: 3px; padding: 0.4em; font-size: 1em; height: auto; }
+  </style>
+
+<p id="feedback">
+<span><b>You've selected:</b></span> <br>
+<span class="selected" id="select-result">Nothing.</span>
+</p>
+<p></p>
+<ol  id="grid">
+	<!-- filled in later -->
+</ol>
+
+<script>
+$(function() {
+
+    initCustomizations();
+
+});
+</script>
+
+
+</body>
+</html>

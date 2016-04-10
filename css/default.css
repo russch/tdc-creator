@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    color: #262626;
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 1px;
+}
+
+span{
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+}
+
+span.selected{
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 2px;
+    padding-left: 20;
+    background-color: rgb(31,119,180) ;
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+h2 {
+    margin: 16px 0 8px 0;
+    font-size: 18px;
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-weight: 300;
+      padding-left: 10px;
+}
+
+ul {
+    list-style-type: disc;
+    color: #262626;
+    padding-left:30px;
+    list-style-position: inside;
+    padding-top: 10px;
+}
+
+a {
+    color: #2ba6cb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #258faf;
+}
+
+input, button, select {
+    font-family: 'Helvetica Neue Light', 'Open Sans', Helvetica;
+    font-weight: 300;
+    font-size: 14px;
+    padding: 2px;
+}
+
+input.selected
+{
+    margin-left: 50px;
+}
+
+p{
+ padding-top: 10px;
+ padding-left: 20px;
+}
+
+hr{
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+img{
+  padding: 20px;
+}
